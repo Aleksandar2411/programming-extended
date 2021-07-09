@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Alex Ivanov">
+	<title>SpaceX Interface</title>
+	<link rel="stylesheet" type="text/css" href="styles/mystyle.css">
+	<script src="scripts/main.js" defer></script>
+</head>
+
+<body>
+
+	<img src="images/Logo.png" alt="Logo" class="banner">
+	<h1>Passenger Interface</h1> <br><br>
+
+	<div class="functions">
+
+		<!--Ship's parameters-->
+		<div class="box">
+			<h2>Ship's parameters</h2> <br><br>
+
+			<div class="speed">
+				<h4>Currrent Speed</h4>
+				<p><span id="currentSpeed">1750</span> mps</p>
+			</div><br>
+
+			<div class="fuel">
+				<h4>Fuel level</h4>
+				<div id="progress">
+					<div id="fuelBar"></div>
+				</div>
+				<p><span id="fuel">100.00</span> m3</p>
+			</div> <br>
+
+			<div class="throttle">
+				<h4>Throttle</h4>
+				<div class="slidecontainer">
+					<input type="range" min="1" max="100" value="50" class="slider" id="throttleLevel">
+					<p><span id="output"></span>%</p>
+					<p>Cick here to boost the throttle:</p>
+					<button onclick="fuelBar()">Boost</button>
+				</div>
+			</div><br>
+
+			<div class="gForce">
+				<h4>Current G-Force</h4>
+				<p><span id="currentGForce">2.50</span> G</p>
+			</div>
+
+		</div>
+
+
+		<!--Ship's environment-->
+		<div class="box">
+			<h2>Ship Environment</h2> <br><br>
+
+			<div class="gravity">
+				<h4>Gravity status</h4>
+				<div class="shipGravity">
+					<p><span id="shipGravity">2.50</span> G</p>
+				</div>
+			</div><br>
+
+			<div class="distance">
+				<h4>Distance</h4>
+				<label for="distance">Distance remaining:</label>
+				<p><span id="distance_left">324400000</span> km</p>
+			</div><br>
+
+			<div class="atmosphere">
+				<h4>Atmosphere presssure</h4>
+				<p><span id="atmosphere_message">The current pressure is optimal.</span></p>
+			</div><br>
+
+		</div>
+
+
+		<!--Supplies-->
+		<div class="box">
+			<h2>Supplies</h2> <br><br>
+
+			<div class="food">
+				<h4>Food</h4>
+				<label for="food">Click here to see how much food is left on board: </label> <br><br>
+				<button onclick="omNoms()">Calculate</button>
+				<p id="food_left"></p>
+			</div><br>
+
+			<div class="water">
+				<h4>Water</h4>
+				<label for="food">Click here to see how much water is left on board: </label> <br><br>
+				<button onclick="slupSlurp()">Calculate</button>
+				<p id="water_left"></p>
+			</div><br>
+
+		</div>
+
+
+		<!--Metrics-->
+		<div class="box">
+			<h2>Metrics</h2> <br><br>
+
+			<div class="weightConverter">
+				<h4>Weight converter</h4>
+				<label for="weight">Fill in your weight to see how much you weight on Mars:</label> <br><br>
+				<input type="text" name="weight" id="weight" /> <br><br>
+				<button onclick="weightConverter()">Convert</button>
+				<p id="weight_mars"></p>
+			</div>
+
+		</div>
+	</div>
+	</div>
+
+
+</body>
+
+</html>

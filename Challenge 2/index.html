@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge, chrome=1">
+    <title>Clocks</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="stylesheets/screen.css">
+    <link rel="stylesheet" href="stylesheets/switch.css">
+</head>
+
+<body>
+    <!-- Spaceship -->
+    <div id="ship" style="display: block;">
+        <img src="images/ship.png" class="ship">
+    </div>
+
+    <!-- Clock -->
+    <div id="clock_container">
+        <h1 id="clock">00:00:00</h1>
+        <h2 id="date">XX.YY.XXXX</h2>
+    </div>
+
+
+    <!-- Switch -->
+    <div id="rounded_switch">
+        <span
+            style="    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #ccc;margin-right: 10px;font-size:  1.7em;">Current</span>
+        <label class="switch">
+            <input type="checkbox" id="switch" onclick="switchLocation(this.value)">
+            <span class="slider round"></span>
+        </label>
+        <span style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;color: #ccc;margin-left: 80px;font-size:  1.7em;">GMT</span>
+    </div>
+    <script type="text/javascript" src="./javascripts/main.js"></script>
+</body>
+
+</html>
