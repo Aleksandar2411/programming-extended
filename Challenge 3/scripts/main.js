@@ -64,3 +64,14 @@ function httpGet(theUrl) {
   xmlHttp.send(null);
   return xmlHttp.responseText;
 }
+
+//Map API Key
+var mapApiKey ='pk.eyJ1IjoiYXBpMjQiLCJhIjoiY2txcjVycWtvMWN1czMybWhoOGhwcXFndyJ9.Cziz3s1negWGdPw8JiNTuQ';
+mapboxgl.accessToken = mapApiKey;
+
+var map = new mapboxgl.Map(
+	{container: 'map',
+  	style: 'mapbox://styles/api24/ckqr6geak2o0x18o09747zu8j',
+  	center: [4.000000, 50.000000],
+  	zoom: 2}
+);
