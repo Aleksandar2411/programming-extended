@@ -1,66 +1,114 @@
+<!DOCTYPE html>
+<html>
 
-function getSuggestion() {
-  //Select city
-  var select = document.getElementById("select");
-  var index = select.selectedIndex;
-  var cityId = select.options[index].value;
-  var url1 = "http://api.openweathermap.org/data/2.5/forecast?id=" + cityId + "&appid=90e60912bd182a7376c51572407574da"
-  var result = httpGet(url1);
-  var obj = eval("(" + result + ")");
-  var coord = obj.city.coord;
-  var weather = obj.list[0].weather[0].main;
+<head>
+	<meta charset="utf-8">
+	<meta name="author" content="Alex Ivanov">
+	<title>SpaceX Interface</title>
+	<link rel="stylesheet" type="text/css" href="styles/mystyle.css">
+	<script src="scripts/main.js" defer></script>
+</head>
 
-  //Weather and coordinates
-  console.log("weather:" + weather)
-  console.log("list1:" + obj.list[0])
-  console.log(coord)
-  var param = "lat=" + coord.lat + "&lng=" + coord.lon;
-  var coord_show = coord.lat + "," + coord.lon;
+<body>
 
-  //Time(zone)
-  var url2 = "http://api.geonames.org/timezoneJSON?" + param + "&username=javthon"
-  var result2 = httpGet(url2)
-  console.log(result2)
-  var obj2 = eval("(" + result2 + ")");
-  var localTime = obj2.time;
+	<!--Logo + Message-->
+	<img src="images/Logo.png" alt="Logo" class="banner">
+	<h1>Welcome home</h1> <br><br>
 
-  document.getElementById("location").value = coord_show
-  document.getElementById("time").value = localTime
-  document.getElementById("weather").value = weather
+	<!--Information box-->
+	<div class="box">
+		<div class="information">
+			<div class="row">
+				<div class="col-md-8">
+					<div class="card">
+						<div class="card-header">
+							<h4 class="card-title">Landing locations</h4>
+						</div>
+						<div class="card-body">
+							<div class="row">
+								<div class="col-md-6 pr-1">
+									<div class="form-group">
+										<label>city</label>
+										<!--List of cities-->
+										<select id="select" class="form-control" style="display: inline-block;">
+											<option value="2759794">Amsterdam</option>
+											<option value="264371">Athens</option>
+											<option value="2950159">Berlin</option>
+											<option value="2800866">Brussels</option>
+											<option value="683506">Bucharest</option>
+											<option value="3054643">Budapest</option>
+											<option value="2618425">Copenhagen</option>
+											<option value="5344157">Dublin</option>
+											<option value="53172">Helsinki</option>
+											<option value="658225">Lisbon</option>
+											<option value="2643743">London</option>
+											<option value="3117735">Madrid</option>
+											<option value="3143244">Oslo</option>
+											<option value="2988507">Paris</option>
+											<option value="3067696">Prague</option>
+											<option value="3413829">Reykjavik</option>
+											<option value="4219762">Rome</option>
+											<option value="727011">Sofia</option>
+											<option value="2747373">The Hague</option>
+											<option value="593116">Vilnius</option>
+											<option value="756135">Warsaw</option>
+										</select>
+										<!--Search button-->
+										<button class="btn btn-info btn-fill pull-right"
+											style="display: inline-block;margin-left: 30px;"
+											onclick="getSuggestion()">See information</button>
+									</div>
 
-  var time = localTime.substring(11, 13)
+								</div>
 
-  console.log("time:" + time)
+							</div>
+							<div class="row">
+								<div class="col-md-12 pr-1">
+									<div class="form-group">
+										<label>land location</label>
+										<input id="location" type="text" class="form-control" value="">
+									</div>
+								</div>
+							</div>
 
-  var output = ""
-  var land = true;
+							<div class="row">
+								<div class="col-md-12 pr-1">
+									<div class="form-group">
+										<label>weather</label>
+										<input id="weather" type="text" class="form-control" value="">
+									</div>
+								</div>
+							</div>
 
-  // Display landing advice
-  if (parseInt(time) >= 8 && parseInt(time) <= 20) {
-    output += "It is daytime now (secure)"
-  } else {
-    output += "It is night now (vulnerable)"
-    land = false;
-  }
-  if (weather === "Clear") {
-    output += ", weather condition is optimal"
-  } else {
-    output += ", weather condition is unsatisfatory"
-    land = false;
-  }
-  if (land) {
-    output += ", safe landing spot"
-  } else {
-    output += ", dangerous landing spot"
-  }
+							<div class="row">
+								<div class="col-md-12 pr-1">
+									<div class="form-group">
+										<label>local time</label>
+										<input id="time" type="text" class="form-control" value="">
+									</div>
+								</div>
+							</div>
 
-  document.getElementById("advice").value = output
-}
+							<div class="row">
+								<div class="col-md-12 pr-1">
+									<div class="form-group">
+										<label>advice</label>
+										<input id="advice" type="text" class="form-control" value="">
+									</div>
+								</div>
+							</div>
 
-//API
-function httpGet(theUrl) {
-  var xmlHttp = new XMLHttpRequest();
-  xmlHttp.open("GET", theUrl, false); 
-  xmlHttp.send(null);
-  return xmlHttp.responseText;
-}
+							<div class="clearfix"></div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+</body>
+
+</html>
