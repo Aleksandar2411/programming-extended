@@ -11,14 +11,18 @@
 
 <body>
 
+	<!-- Map API -->
+	<link href="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.css" rel="stylesheet" />
+	<script src="https://api.mapbox.com/mapbox-gl-js/v2.5.0/mapbox-gl.js"></script>
+
 	<!--Logo + Message-->
 	<img src="images/Logo.png" alt="Logo" class="banner">
 	<h1>Welcome home</h1> <br><br>
 
 	<!--Information box-->
 	<div class="box">
-		<div class="information">
-			<div class="row">
+		<div class="row">
+			<div class="information">
 				<div class="col-md-8">
 					<div class="card">
 						<div class="card-header">
@@ -54,9 +58,11 @@
 											<option value="756135">Warsaw</option>
 										</select>
 										<!--Search button-->
-										<button class="btn btn-info btn-fill pull-right" style="display: inline-block; margin-left: 30px; "onclick="getSuggestion()">See information</button>
+										<button class="btn btn-info btn-fill pull-right"
+											style="display: inline-block;margin-left: 30px;"
+											onclick="getSuggestion()">See
+											information</button>
 									</div>
-
 								</div>
 
 							</div>
@@ -104,6 +110,9 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- Map -->
+	<div class="splitbox" id="map"></div>
 	</div>
 
 
